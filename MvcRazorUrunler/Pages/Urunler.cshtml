@@ -1,0 +1,17 @@
+﻿@page
+@model MvcRazorUrunler.Pages.UrunlerModel
+@{
+    ViewData["Title"] = "Ürün Ekle";
+}
+
+<h1>Ürün Ekle</h1>
+
+<form class="form-inline" method="post">
+    <div class="form-inline">
+        <input asp-for="Urun.UrunAd" class="form-control mr-2" placeholder="Ürün Adı" />
+        <span asp-validation-for="Urun.UrunAd"></span>
+        <input asp-for="Urun.BirimFiyat" class="form-control mr-2" placeholder="Birim Fiyatı" />
+        <span asp-validation-for="Urun.BirimFiyat"></span>
+        <button class="btn btn-primary">Ekle</button>
+    </div>
+</form>

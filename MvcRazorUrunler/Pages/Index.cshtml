@@ -1,0 +1,35 @@
+﻿@page
+@model MvcRazorUrunler.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    int sayac = 1;
+}
+
+
+<p>
+    <a asp-page="Ekle" class="btn btn-success">Ürün Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Urun)
+        {
+            <tr>
+                <td>@(sayac++)</td>
+                <td>@Html.DisplayFor(modelItem => item.UrunAd) </td>
+                <td>@Html.DisplayFor(modelItem => item.BirimFiyat)</td>
+                <td>
+                    <a asp-page="./Duzenle" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a> 
+                    <a asp-page="./Sil" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

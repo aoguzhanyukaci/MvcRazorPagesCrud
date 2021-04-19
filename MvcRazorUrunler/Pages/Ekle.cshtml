@@ -1,0 +1,35 @@
+﻿@page
+@model MvcRazorUrunler.Pages.EkleModel
+@{
+    ViewData["Title"] = "Ürün Ekle";
+}
+
+<h1>Ürün Ekle</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Urun.UrunAd" class="control-label"></label>
+                <input asp-for="Urun.UrunAd" class="form-control" />
+                <span asp-validation-for="Urun.UrunAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.BirimFiyat" class="control-label"></label>
+                <input asp-for="Urun.BirimFiyat" class="form-control" />
+                <span asp-validation-for="Urun.BirimFiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-page="Index" class="btn btn-danger">Geri Dön</a>
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
